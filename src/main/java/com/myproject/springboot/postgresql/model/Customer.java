@@ -11,16 +11,19 @@ public class Customer {
     private String lastName;
     private String emailId;
     private String password;
+    private String passwordToken;
+
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String emailId, String password) {
+    public Customer(String firstName, String lastName, String emailId, String password, String passwordToken) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
         this.password = password;
-    }
+        this.passwordToken = passwordToken ;}
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -64,10 +67,23 @@ public class Customer {
         this.password = password;
     }
 
+    public String getPasswordToken() {
+        return passwordToken;
+    }
+
+    public void setPasswordToken(String passwordToken) {
+        this.passwordToken = passwordToken;
+    }
+
+//    @Column(name = "passwordToken", nullable = false)
+
+
     @Override
     public String toString() {
         return "customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
-                + ", password=" + password + "]";
+                + "]";
     }
+
+
 
 }
